@@ -1,6 +1,5 @@
-import 'dart:io';
-
 import 'package:contacts_web_app/app/common/widget_utils.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -41,17 +40,24 @@ class LoginView extends GetView<LoginController> {
               child: const Text("Login"),
             ),
           ),
-          // if (!Platform.isAndroid && !Platform.isIOS)
-            SizedBox(
-              width: Get.width * 0.6,
-              child: ElevatedButton(
-                onPressed: () => controller.viewDashboard(),
-                style: ElevatedButton.styleFrom(
-                    elevation: 5,
-                    padding: const EdgeInsets.all(22),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(22))),
-                child: const Text("View Dashboard"),
+          if (kIsWeb)
+            Expanded(
+              child: SizedBox(),
+            ),
+          if (kIsWeb)
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: SizedBox(
+                width: Get.width * 0.6,
+                child: ElevatedButton(
+                  onPressed: () => controller.viewDashboard(),
+                  style: ElevatedButton.styleFrom(
+                      elevation: 5,
+                      padding: const EdgeInsets.all(22),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(22))),
+                  child: const Text("View Dashboard"),
+                ),
               ),
             ),
         ],

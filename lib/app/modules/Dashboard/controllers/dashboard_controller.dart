@@ -1,6 +1,7 @@
 import 'package:contacts_web_app/app/common/widget_utils.dart';
 import 'package:contacts_web_app/app/data/ApiProvider.dart';
 import 'package:contacts_web_app/app/data/models/AllData.dart';
+import 'package:contacts_web_app/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 class DashboardController extends GetxController {
@@ -29,6 +30,10 @@ class DashboardController extends GetxController {
   @override
   void onClose() {
     super.onClose();
+  }
+
+  void backToLogin() {
+    Get.offNamed(Routes.LOGIN);
   }
 
 }

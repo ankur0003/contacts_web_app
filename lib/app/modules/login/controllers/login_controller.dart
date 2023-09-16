@@ -44,7 +44,7 @@ class LoginController extends GetxController {
         print("Access token $token");
 
         Storage.save(Constants.token, token);
-        Get.toNamed(Routes.HOME);
+        Get.offNamed(Routes.HOME);
       }
     });
   }
