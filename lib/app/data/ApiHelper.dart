@@ -7,6 +7,7 @@ abstract class ApiHelper{
   Future<Response> fetchContacts();
   Future<Response> deleteContact(String id);
   Future<Response> updateContact(String id);
+  Future<Response> getAllData();
 
 
 }

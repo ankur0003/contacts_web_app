@@ -1,7 +1,9 @@
-  import 'package:contacts_web_app/app/common/Constants.dart';
-import 'package:contacts_web_app/app/common/Storage.dart';
 import 'package:get/get.dart';
 
+import '../common/Constants.dart';
+import '../common/Storage.dart';
+import '../modules/Dashboard/bindings/dashboard_binding.dart';
+import '../modules/Dashboard/views/dashboard_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -12,7 +14,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static var INITIAL =Routes.LOGIN;
+  static var INITIAL = Routes.LOGIN;
 
   static final routes = [
     GetPage(
@@ -24,6 +26,11 @@ class AppPages {
       name: _Paths.LOGIN,
       page: () => const LoginView(),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: _Paths.DASHBOARD,
+      page: () => const DashboardView(),
+      binding: DashboardBinding(),
     ),
   ];
 }

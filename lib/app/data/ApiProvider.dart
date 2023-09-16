@@ -3,6 +3,7 @@ import 'package:contacts_web_app/app/common/GetResponse.dart';
 import 'package:contacts_web_app/app/common/Storage.dart';
 import 'package:contacts_web_app/app/data/ApiHelper.dart';
 import 'package:contacts_web_app/app/data/models/AccessToken.dart';
+import 'package:contacts_web_app/app/data/models/AllData.dart';
 import 'package:contacts_web_app/app/data/models/MyContacts.dart';
 import 'package:contacts_web_app/app/data/models/UserDetail.dart';
 import 'package:get/get.dart';
@@ -77,5 +78,10 @@ class ApiProvider extends GetConnect with ApiHelper {
   Future<Response> updateContact(String id) {
     // TODO: implement updateContact
     throw UnimplementedError();
+  }
+
+  @override
+  Future<Response> getAllData() {
+   return get("data",decoder: (data)=>AllData.fromJson(data));
   }
 }

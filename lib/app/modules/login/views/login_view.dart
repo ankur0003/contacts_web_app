@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:contacts_web_app/app/common/widget_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,35 +16,46 @@ class LoginView extends GetView<LoginController> {
         title: const Text('LoginView'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CustomTextFormField(
-                controller.emailController, "Enter your email", "Email"),
-            const SizedBox(
-              height: 20,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CustomTextFormField(
+              controller.emailController, "Enter your email", "Email"),
+          const SizedBox(
+            height: 20,
+          ),
+          CustomTextFormField(controller.passwordController,
+              "Enter  your password", "Password"),
+          const SizedBox(
+            height: 60,
+          ),
+          SizedBox(
+            width: Get.width * 0.6,
+            child: ElevatedButton(
+              onPressed: () => controller.loginUser(),
+              style: ElevatedButton.styleFrom(
+                  elevation: 5,
+                  padding: const EdgeInsets.all(22),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(22))),
+              child: const Text("Login"),
             ),
-            CustomTextFormField(controller.passwordController,
-                "Enter  your password", "Password"),
-            const SizedBox(
-              height: 60,
-            ),
+          ),
+          // if (!Platform.isAndroid && !Platform.isIOS)
             SizedBox(
               width: Get.width * 0.6,
               child: ElevatedButton(
-                onPressed: () => controller.loginUser(),
+                onPressed: () => controller.viewDashboard(),
                 style: ElevatedButton.styleFrom(
                     elevation: 5,
                     padding: const EdgeInsets.all(22),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(22))),
-                child: const Text("Login"),
+                child: const Text("View Dashboard"),
               ),
-            )
-          ],
-        ).paddingAll(16),
-      ),
+            ),
+        ],
+      ).paddingAll(16),
     );
   }
 }
